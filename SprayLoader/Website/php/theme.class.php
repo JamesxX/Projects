@@ -36,20 +36,11 @@ class BlogTheme{
 	}
 	
 	public function BuildNavBar($SiteName, array $NavLinks){
-		print('		<nav class="nav-wrapper light-blue darken-3">
-			<div class="container">
-				<a href="#" class="brand-logo">'.$SiteName.'</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">');
-				
+		print('<nav class="nav-wrapper light-blue darken-3"><div class="container"><a href="#" class="brand-logo">'.$SiteName.'</a><ul id="nav-mobile" class="right hide-on-med-and-down">');	
 		foreach ( $NavLinks as $Name=>$URL ) {
-			print('					<li><a class="waves-effect waves-light" href="'.$URL.'">'.$Name.'</a></li>');
-		}
-				
-		print('				</ul>
-			</div>
-		</nav>');
-		
-		
+			print('<li><a class="waves-effect waves-light" href="'.$URL.'">'.$Name.'</a></li>');
+		}		
+		print('</ul></div></nav>');
 	}
 	
 	public function StartContainer( ){
@@ -71,11 +62,7 @@ class BlogTheme{
 	}
 	
 	public function CardImage($Title, $Image, $Content, array $links ){
-		print( '<div class="card">
-				<div class="card-image">
-					<img src="'.$Image.'">
-					<span class="card-title">'.$Title.'</span>
-				</div>');
+		print( '<div class="card"><div class="card-image"><img src="'.$Image.'"><span class="card-title">'.$Title.'</span></div>');
 		if ( $Content != "" ){
 			print('<div class="card-content dark-grey-text text-darken-4"> <p>'.$Content.'</p> </div>');
 		}
@@ -84,33 +71,25 @@ class BlogTheme{
 		foreach ( $links as $Name=>$URL ) {
 			print('<a href="'.$URL.'">'.$Name.'</a>');
 		}
-		print('</div>
-			</div>');
-		
+		print('</div></div>');
 	}
 	
 	public function EndContainer( ){
-		print('		</div>');
+		print('</div>');
 	}
 	
 	public function BuildFooter($CopyrightText, $FooterLinks ){
-		print('<footer class="page-footer light-blue darken-3">
-			<div class="footer-copyright">
-				<div class="container">');
-		print("				$CopyrightText");
+		print('<footer class="page-footer light-blue darken-3"><div class="footer-copyright"><div class="container">');
+		print("$CopyrightText");
 		foreach ( $FooterLinks as $Name=>$URL ) {
-			print('					<a class="grey-text text-lighten-4 right waves-effect waves-light" href="'.$URL.'">'.$Name.'</a>');
+			print('<a class="grey-text text-lighten-4 right waves-effect waves-light" href="'.$URL.'">'.$Name.'</a>');
 		}
-		print('				</div>
-			</div>
-		</footer>');
-		
+		print('</div></div></footer>');
 	}
 	
 	
 	public function BuildPage( ){
-		print('<!DOCTYPE html>
-<html lang="en">');
+		print('<!DOCTYPE html><html lang="en">');
 
 		$this->BuildHead($this->Title);
 		$this->BuildNavBar($this->SiteName, $this->NavLinks);
@@ -125,8 +104,7 @@ class BlogTheme{
 		<script src="js/materialize.js"></script>
 		<script src="js/init.js"></script>
 	
-		</body>
-</html>');
+		</body></html>');
 	}
 	
 	
