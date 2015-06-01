@@ -5,7 +5,6 @@ include( "cl_init.lua" )
 
 function ENT:Initialize()
 	
-	-- Use the helibomb model just for the shadow (because it's about the same size)
 	self:SetModel( "models/Combine_Helicopter/helicopter_bomb01.mdl" )
 	
 	self:SetupCustomPhysics( self:GetBallSize() )

@@ -1,3 +1,4 @@
+include( "shared.lua" )
 
 local matBall = Material( "sprites/sent_ball" )
 
