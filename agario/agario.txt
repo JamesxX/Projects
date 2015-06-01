@@ -1,0 +1,7 @@
+"Gamemode"
+{
+	"base"		"base"
+	"title"		"Agario"
+	"maps"		"^ag_"
+	"menusystem"	"1"
+}
