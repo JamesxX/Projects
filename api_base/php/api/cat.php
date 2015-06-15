@@ -1,6 +1,6 @@
 <?php
 
-include "php/method.class.php";
+include_once "php/method.class.php";
 
 class API_CAT_Method extends API_Method{
 	

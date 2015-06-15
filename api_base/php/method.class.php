@@ -6,8 +6,8 @@ abstract class API_Method{
 	abstract public function Check();
 	abstract public function Output();
 	
-	/** Private */
-	private $API = null;
+	/** Protected */
+	protected $API;
 	
 	/** Public */
 	public function SetParent( $API ){

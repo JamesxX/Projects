@@ -18,8 +18,12 @@ class API{
 		$output = array();
 		$output["status"] = $Success ? "success" : "error";
 		
-		if ( $Success ){
-			$output["Name"] = $Name;
+		if ( isset( $this->status ) ){
+			$output["status"] = $this->status;
+		}
+		
+		if ( $Success and ( !isset($this->status) or $this->status == "success" )){
+			$output["name"] = $Name;
 			
 			if ( $Base64 and gettype( $Output ) == "string" ){
 				$output["output"] = base64_encode( $output );
@@ -29,11 +33,23 @@ class API{
 		}else{
 			$output["code"] = $Name;
 			$output["output"] = $Output;
+			
+			if ( isset( $this->errorcode ) ){
+				$output["status"] = $this->errorcode;
+			}
+			
+			if ( isset( $this->errormessage ) ){
+				$output["output"] = $this->errormessage;
+			}
 		}
 		return $output;
 	}
 	
 	/** Public */
+	
+	public $status;
+	public $errorcode;
+	public $errormessage;
 	
 	public function AddMethod( $sName, $fCallable ){
 		if ( isset($this->methods[$sName]) ) return API_ErrorEnum::MethodAlreadyExists;
@@ -49,7 +65,7 @@ class API{
 		$method->SetParent( $this );
 		
 		if ( $method->Check() ){
-			return $method->Output();
+			return $method->Output( );
 		}
 		
 		return API_ErrorEnum::MethodFailedChecks;
