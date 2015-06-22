@@ -46,7 +46,7 @@ class API{
 	}
 	
 	private function GetInputTable( ){
-		if ( isset( $_GET["post"] ) ){
+		if ( count( $_POST ) !== 0 ){
 			return $_POST;
 		}
 		return $_GET;
