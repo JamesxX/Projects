@@ -45,8 +45,16 @@ class API{
 		return $output;
 	}
 	
+	private function GetInputTable( ){
+		if ( isset( $_GET["post"] ) ){
+			return $_POST;
+		}
+		return $_GET;
+	}
+	
 	/** Public */
 	
+	public $input = array();
 	public $status;
 	public $errorcode;
 	public $errormessage;
@@ -63,6 +71,7 @@ class API{
 		
 		$method = $this->methods[$sName]();
 		$method->SetParent( $this );
+		$method->InitiateDatabase( );
 		
 		if ( $method->Check() ){
 			return $method->Output( );
@@ -72,6 +81,7 @@ class API{
 	}
 	
 	public function Run( ){
+		$this->input = $this->GetInputTable( );
 		$Name = $this->GetCurrentMethod( );
 		$Output = $this->HandleExecution( $Name );
 		if ( gettype($Output) == "array" or gettype($Output) == "string" ){

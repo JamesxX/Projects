@@ -5,11 +5,11 @@ include_once "php/method.class.php";
 class API_CAT_Method extends API_Method{
 	
 	public function Check(){
-		return isset( $_GET["i"] );
+		return (null !== $this->GetInput("i") );
 	}
 	
 	public function Output(){
-		return $_GET["i"];
+		return $this->GetInput("i");
 	}
 	
 }
