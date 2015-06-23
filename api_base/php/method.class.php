@@ -8,12 +8,10 @@ abstract class API_Method{
 	
 	/** Protected */
 	protected $API;
-	
-	protected $UseDatabase = false; /** Set this to true when extending to enable database */
 	protected $Database;
 	
 	protected function GetInput( $Name ){
-		if ( isset( $this->API ) ){
+		if ( isset( $this->API ) and isset( $this->API->input[ $Name ] )){
 			return $this->API->input[ $Name ];
 		}
 	}	
@@ -24,14 +22,16 @@ abstract class API_Method{
 	}
 	
 	public function InitiateDatabase( ){
-		if ( $this->UseDatabase ){
+		if ( isset($this->UseDatabase) and $this->UseDatabase == true ){
 			try{
+				ob_start();
 				$this->Database = new PDO('mysql:host=hostname;dbname=ssldb','username','password'); /** Fill this in */
-				$con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+				$this->Database->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 			}
 			catch (PDOException $e)  
 			{ 
-				die( json_encode($this->BuildOutput( false, "MySQL Error", $e->getMessage() ), JSON_PRETTY_PRINT));  
+				ob_clean();
+				die( json_encode($this->API->BuildOutput( false, "MySQL Error", $e->getMessage() ), JSON_PRETTY_PRINT));  
 			}
 		}
 	}
@@ -47,6 +47,7 @@ abstract class API_Method_AuthenticationRequired extends API_Method{
 	
 	public function Authenticate( $key ){
 		// Return true if authenticated
+		return true;
 	}
 	
 	public function Check(){
@@ -66,4 +67,18 @@ abstract class API_Method_AuthenticationRequired extends API_Method{
 	}
 }
 
+trait NoRequiredArguments{
+	public $required_arguments = array();
+}
+
+trait Database{
+	protected $UseDatabase = true;
+}
+
+trait DefaultNoAPIKeyMessage{
+	public function NotAuthed( $badkey ){
+		$this->API->status = "badkey";
+		return "The key you supplied ($badkey) is not valid.";
+	}
+}
 ?>

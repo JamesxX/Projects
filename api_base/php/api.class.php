@@ -14,7 +14,28 @@ class API{
 		return "Error";
 	}
 	
-	private function BuildOutput( $Success, $Name, $Output, $Base64 = false ){
+	private function GetInputTable( ){
+		if ( count( $_POST ) !== 0 ){
+			return $_POST;
+		}
+		return $_GET;
+	}
+	
+	/** Public */
+	
+	public $input = array();
+	public $status;
+	public $errorcode;
+	public $errormessage;
+	
+	public function AddMethod( $sName, $fCallable ){
+		if ( isset($this->methods[$sName]) ) return API_ErrorEnum::MethodAlreadyExists;
+		
+		$this->methods[$sName] = $fCallable;
+		return API_ErrorEnum::Success;
+	}
+	
+	public function BuildOutput( $Success, $Name, $Output, $Base64 = false ){
 		$output = array();
 		$output["status"] = $Success ? "success" : "error";
 		
@@ -45,27 +66,6 @@ class API{
 		return $output;
 	}
 	
-	private function GetInputTable( ){
-		if ( count( $_POST ) !== 0 ){
-			return $_POST;
-		}
-		return $_GET;
-	}
-	
-	/** Public */
-	
-	public $input = array();
-	public $status;
-	public $errorcode;
-	public $errormessage;
-	
-	public function AddMethod( $sName, $fCallable ){
-		if ( isset($this->methods[$sName]) ) return API_ErrorEnum::MethodAlreadyExists;
-		
-		$this->methods[$sName] = $fCallable;
-		return API_ErrorEnum::Success;
-	}
-	
 	public function HandleExecution( $sName ){
 		if ( !isset($this->methods[$sName]) ) return API_ErrorEnum::NoMethodExists;
 		
@@ -84,6 +84,7 @@ class API{
 		$this->input = $this->GetInputTable( );
 		$Name = $this->GetCurrentMethod( );
 		$Output = $this->HandleExecution( $Name );
+		
 		if ( gettype($Output) == "array" or gettype($Output) == "string" ){
 			print( json_encode($this->BuildOutput( true, $Name, $Output ), JSON_PRETTY_PRINT) );
 		}else{
