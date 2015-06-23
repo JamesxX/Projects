@@ -1,10 +1,7 @@
 <?php
 
-include_once "php/method.class.php";
-
 class API_404 extends API_Method{
-	
-	public function Check(){ return true; }
+	use NoChecks;
 	
 	public function Output(){
 		$this->API->status = "failed";
@@ -13,6 +10,6 @@ class API_404 extends API_Method{
 	
 }
 
-$API->AddMethod( "failed", function(){ return new API_404; } )
+$API->AddMethod( "failed", "API_404" );
 
 ?>

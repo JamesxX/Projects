@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 include "error.enum.php";
 
 class API{
@@ -69,7 +71,12 @@ class API{
 	public function HandleExecution( $sName ){
 		if ( !isset($this->methods[$sName]) ) return API_ErrorEnum::NoMethodExists;
 		
-		$method = $this->methods[$sName]();
+		$method = null;
+		if ( gettype( $this->methods[$sName] ) == "string" ){
+			$method = new $this->methods[$sName];
+		}else{
+			$method = $this->methods[$sName]();
+		}
 		$method->SetParent( $this );
 		$method->InitiateDatabase( );
 		
@@ -85,6 +92,7 @@ class API{
 		$Name = $this->GetCurrentMethod( );
 		$Output = $this->HandleExecution( $Name );
 		
+		ob_clean();
 		if ( gettype($Output) == "array" or gettype($Output) == "string" ){
 			print( json_encode($this->BuildOutput( true, $Name, $Output ), JSON_PRETTY_PRINT) );
 		}else{

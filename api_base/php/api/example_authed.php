@@ -1,7 +1,5 @@
 <?php
 
-include_once "php/method.class.php";
-
 class API_ExampleAuthedMethod extends API_Method_AuthenticationRequired{
 	
 	public $required_arguments = array(); // Put the required arguments in here.
@@ -20,6 +18,6 @@ class API_ExampleAuthedMethod extends API_Method_AuthenticationRequired{
 	// DO NOT OVERRIDE ::OUTPUT( )
 }
 
-$API->AddMethod( "secret", function(){ return new API_ExampleAuthedMethod; } )
+$API->AddMethod( "secret", "API_ExampleAuthedMethod" );
 
 ?>

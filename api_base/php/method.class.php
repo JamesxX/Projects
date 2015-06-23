@@ -81,4 +81,9 @@ trait DefaultNoAPIKeyMessage{
 		return "The key you supplied ($badkey) is not valid.";
 	}
 }
+
+trait NoChecks{
+	public function Check(){ return true; }
+}
+
 ?>

@@ -1,7 +1,5 @@
 <?php
 
-include_once "php/method.class.php";
-
 class API_CAT_Method extends API_Method{
 	
 	public function Check(){
@@ -14,6 +12,6 @@ class API_CAT_Method extends API_Method{
 	
 }
 
-$API->AddMethod( "cat", function(){ return new API_CAT_Method; } )
+$API->AddMethod( "cat", "API_CAT_Method" );
 
 ?>
