@@ -1,0 +1,255 @@
+/*-------------------------
+	Flat proof of concept
+--------------------------*/
+
+@import url("flaticon.css");
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,400italic,700italic,300,700,400);
+@import url("table.css");
+
+html{
+	min-height: 100%;
+	position: relative;
+}
+
+body{
+	min-height: 100%;
+}
+
+/*-------------------------
+	Navigation Bar
+--------------------------*/
+
+nav{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	
+	width: 65px;
+	height: 100%;
+	
+	background-color: #588ABB;
+	
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	
+	z-index: 100;
+}
+
+nav ul{
+	list-style-type: none;
+	
+	margin: 0;
+	padding: 0;
+}
+
+nav a{
+	display: block;
+	vertical-align: middle;
+	
+	padding: 10px 5px 10px 5px;
+	width: 55px;
+	height: 55px;
+	
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	
+	-webkit-transition: background-color 0.3s linear 0s;
+	-moz-transition: background-color 0.3s linear 0s;
+	-ms-transition: background-color 0.3s linear 0s;
+	-o-transition: background-color 0.3s linear 0s;
+	transition: background-color 0.3s linear 0s;
+	
+}
+
+nav a:hover, nav a[active] {
+	background: rgba(0, 0, 0, 0.11);
+	-webkit-transition: background-color 0.3s linear 0s;
+	-moz-transition: background-color 0.3s linear 0s;
+	-ms-transition: background-color 0.3s linear 0s;
+	-o-transition: background-color 0.3s linear 0s;
+	transition: background-color 0.3s linear 0s;
+}
+
+/*-------------------------
+	Content
+--------------------------*/
+
+.page{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 65px;
+	right: 0;
+	margin: 0 auto;
+	
+	background: url('../images/bg.png') left top repeat;
+}
+
+.page .content{
+	width: 80%;
+	margin: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.page .content h1, .page .content h2, .page .content h3,
+.page .content h4, .page .content h5, .page .content h6, p{
+	font-family: 'Roboto', sans-serif;
+	line-height: 161.803398875%;
+	color: #222;
+}
+
+.page .content[page="index"] h1{
+	text-align: center;
+}
+
+/*-------------------------
+	Blog
+--------------------------*/
+
+.page .content[page="blog"] article {
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	line-height: 161.803398875%;
+	
+	margin-top: 30px;
+	margin-bottom: 40px;
+	
+	background-color: #FFF;
+	color: #333;
+	
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.page .content[page="blog"] article header{
+	height: 50px;
+	display: block;
+	padding: 20px;
+	padding-top: 15px;
+	padding-bottom: 0px;
+	background-color: #588ABB;
+}
+
+.page .content[page="blog"] article header h1{
+	text-align: left;
+	display: inline;
+	color: #FFF;
+}
+
+.page .content[page="blog"] article header h1 time p{
+	display: inline;
+	font-size: 14px;
+	font-weight: 100;
+	margin-right: 5px;
+	color: #FFF;
+}
+
+.page .content[page="blog"] article header h1 time{
+	float: right;
+	display: inline;
+	font-size: 14px;
+	color: #FFF;
+}
+
+@media screen and (max-width: 675px) {
+	.page .content[page="blog"] article header h1 time p{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 570px) {
+	.page .content[page="blog"] article header h1 time{
+		display: none;
+	}
+}
+
+.page .content[page="blog"] article header time:after{
+	font-family: Flaticon;
+	content: "  \e013";
+	 font-size: 20px;
+	vertical-align: middle;
+	font-weight: 100;
+}
+
+.page .content[page="blog"] article main{
+	display: block;
+	padding: 20px;
+	padding-top: 10px;
+}
+
+.page .content[page="blog"] article main img{
+	display: block;
+	max-width: 100%;
+	margin: 10px;
+	float: left;
+}
+
+/*-------------------------
+	Form
+--------------------------*/
+
+.form h2 {
+	margin: 0 0 20px;
+	line-height: 1;
+	color: #33b5e5;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.form input {
+	outline: none;
+	display: block;
+	width: 100%;
+	margin: 0 0 20px;
+	padding: 10px 15px;
+	border: 1px solid #d9d9d9;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #ccc;
+	
+	-webkti-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 14px;
+	font-wieght: 400;
+}
+
+.form input:focus {
+	color: #333333;
+	border: 1px solid #33b5e5;
+}
+.form button {
+	cursor: pointer;
+	background: #588ABB;
+	width: 100%;
+	padding: 10px 15px;
+	margin-bottom: 25px;
+	border: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #ffffff;
+	font-family: "Roboto";
+	font-size: 14px;
+	font-weight: 400;
+	
+	-webkit-transition: background-color 0.3s linear 0s;
+	-moz-transition: background-color 0.3s linear 0s;
+	-ms-transition: background-color 0.3s linear 0s;
+	-o-transition: background-color 0.3s linear 0s;
+	transition: background-color 0.3s linear 0s;
+}
+
+.form button:hover {
+	background: #4072A5;
+	-webkit-transition: background-color 0.3s linear 0s;
+	-moz-transition: background-color 0.3s linear 0s;
+	-ms-transition: background-color 0.3s linear 0s;
+	-o-transition: background-color 0.3s linear 0s;
+	transition: background-color 0.3s linear 0s;
+}
