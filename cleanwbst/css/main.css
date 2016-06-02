@@ -11,8 +11,8 @@ body{
 	line-height: 161.8034%;
 	
 	min-width: 320px;
-    width: auto !important;
-    width: 320px;
+	width: auto !important;
+	width: 320px;
 }
 
 body .container{
