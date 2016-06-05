@@ -1,4 +1,4 @@
-var app = angular.module('BlogPosts', ['ngSanitize']);
+var app = angular.module('BlogPosts', []);
 
 app.controller('websiteController', function($scope, $http){
 	$scope.titleTemplateUrl = "client/template/title.html";
