@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\framework">
+      <UniqueIdentifier>{005769e9-4a25-46b5-aea4-82a23b712014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\render">
+      <UniqueIdentifier>{5f9cf13f-b001-444f-bb3c-98d5eb4441ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\resources">
+      <UniqueIdentifier>{f16acf4e-655b-4fe5-89c0-ca2989d044f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\render\device">
+      <UniqueIdentifier>{c608088d-85d6-40e0-9f1a-60aa5422a696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\render\shader">
+      <UniqueIdentifier>{d337c86e-d30c-40db-9d56-cc67f855454b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\render\shader\testShader">
+      <UniqueIdentifier>{56ddce29-0a99-4e06-a4f3-e10f8e20e23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\framework\render\pipeline">
+      <UniqueIdentifier>{901536bf-5cb9-4295-9545-c8ef8067b8de}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Aeon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\window.cpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\device\instance.cpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\error.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\device\physical.cpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\device\queueFamilyIndices.cpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\device\logical.cpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\surface.cpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\swapChain.cpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\renderer.cpp">
+      <Filter>Source Files\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\shader\shader.cpp">
+      <Filter>Source Files\framework\render\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\shader\testShader\testShader.cpp">
+      <Filter>Source Files\framework\render\shader\testShader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\framework\render\pipeline\pipeline.cpp">
+      <Filter>Source Files\framework\render\pipeline</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\framework\render\window.hpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\resources\deleter.hpp">
+      <Filter>Source Files\framework\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\defines.hpp">
+      <Filter>Source Files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\device\instance.hpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\error.hpp">
+      <Filter>Source Files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\device\physical.hpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\device\queueFamilyIndices.hpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\device\logical.hpp">
+      <Filter>Source Files\framework\render\device</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\surface.hpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\swapChain.hpp">
+      <Filter>Source Files\framework\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\renderer.hpp">
+      <Filter>Source Files\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\shader\shaderHeader.hpp">
+      <Filter>Source Files\framework\render\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\shader\testShader\testShader.hpp">
+      <Filter>Source Files\framework\render\shader\testShader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\framework\render\pipeline\pipeline.hpp">
+      <Filter>Source Files\framework\render\pipeline</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

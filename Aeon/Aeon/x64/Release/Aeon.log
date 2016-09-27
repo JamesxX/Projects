@@ -1,0 +1,5 @@
+﻿  pipeline.cpp
+renderer.obj : error LNK2005: "class Aeon::framework::render::shader::IShader * testShader" (?testShader@@3PEAVIShader@shader@render@framework@Aeon@@EA) already defined in Aeon.obj
+pipeline.obj : error LNK2005: "class Aeon::framework::render::shader::IShader * testShader" (?testShader@@3PEAVIShader@shader@render@framework@Aeon@@EA) already defined in Aeon.obj
+testShader.obj : error LNK2005: "class Aeon::framework::render::shader::IShader * testShader" (?testShader@@3PEAVIShader@shader@render@framework@Aeon@@EA) already defined in Aeon.obj
+C:\Users\james\documents\visual studio 2015\Projects\Aeon\x64\Release\Aeon.exe : fatal error LNK1169: one or more multiply defined symbols found
